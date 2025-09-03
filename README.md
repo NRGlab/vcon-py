@@ -1,12 +1,12 @@
-# vcontacts-wrapper (vconpy)
+# Vcontacts in a Python Package
 
-A lightweight Python package to prepare arguments and run **Vcontacts**,  
+A lightweight Python package to simplify running **Vcontacts**,  
 a tool to compute surface areas in contact using the constrained Voronoi procedure from the paper:  
 
 > **Quantification of protein surfaces, volumes and atom-atom contacts using a constrained Voronoi procedure**  
 > (doi: [10.1093/bioinformatics/18.10.1365](https://doi.org/10.1093/bioinformatics/18.10.1365))
 
-This wrapper makes it easy to call the `Vcontacts` executables (`vcon_surfaces` or `vcon_nrgten`) directly from Python, capture their output, and optionally parse `.vcon` files into Python dictionaries.
+This makes it easy to run `Vcontacts` directly from Python, capture the output, and optionally return the result as a Python dictionary.
 
 ---
 
