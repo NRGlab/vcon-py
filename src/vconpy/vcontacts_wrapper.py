@@ -63,6 +63,11 @@ def run_vcon(pdb_filename, showbonded=False, normalize=False, planedef=None, as_
         executable_path += '.exe'
     if not os.path.isfile(executable_path) or not os.access(executable_path, os.X_OK):
         raise VconError(f"Error: Executable '{executable_path}' not found or not executable.")
+    if not os.path.isfile(pdb_filename):
+        raise VconError(f"Error: Input file '{pdb_filename}' not found.")
+    if not pdb_filename.endswith('.pdb'):
+        raise VconError(f"Warning: Input file '{pdb_filename}' does not have a '.pdb' extension. "
+                        f"Vcontacts is designed to work with PDB files only.")
     cmd = [executable_path]
     cmd.extend([pdb_filename])
     if showbonded:
@@ -72,7 +77,6 @@ def run_vcon(pdb_filename, showbonded=False, normalize=False, planedef=None, as_
     if planedef:
         cmd.extend(["-planedef", planedef.upper()])
     try:
-        print(cmd)
         result = subprocess.run(
             cmd,
             check=True,

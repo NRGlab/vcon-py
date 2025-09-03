@@ -24,25 +24,15 @@ pip install vcon-py
 from vconpy import run_vcon
 
 # Run Vcontacts
-result_surfaces = run_vcon(
-    "/path/to/receptor.pdb",
-    vcon_type="surfaces"
-)
+result = run_vcon("/path/to/protein.pdb")
 
 # Run Vcontacts and return a dictionary instead of outputting a file
-result_nrgten = run_vcon(
-    "/path/to/receptor.pdb",
-    as_dictionary=True
-)
+result_with_dictionary = run_vcon("/path/to/protein.pdb", as_dictionary=True)
 
 # NRGTEN requires setting showbonded as True
-result_nrgten = run_vcon(
-    "/path/to/receptor.pdb",
-    as_dictionary=True,
-    showbonded=True
-)
+result_nrgten = run_vcon("/path/to/protein.pdb", as_dictionary=True, showbonded=True)
 
-print(result_nrgten.surface_dictionary)  # dict of atom-atom contact areas
+print(result_with_dictionary.surface_dictionary)
 ```
 
 ---
